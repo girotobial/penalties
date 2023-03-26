@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let points;
+  export let points: number = 0;
 </script>
 
 <div class="text-danger centered">

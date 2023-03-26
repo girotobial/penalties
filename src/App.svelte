@@ -1,6 +1,6 @@
 <script lang="ts">
   import Penalty from "./lib/Penalty.svelte";
-  import Slider from "./lib/Slider.svelte";
+  import PlacesLost from "./lib/PlacesLost.svelte";
   import TickBox from "./lib/TickBox.svelte";
   import Car from "./lib/Car.svelte";
 
@@ -36,7 +36,7 @@
       <TickBox bind:value={lapOne} label="First Lap" />
       <TickBox bind:value={contact} label="Contact" />
     </div>
-    <Slider bind:value={placesLost} name="Places Lost" min="0" max="50" />
+    <PlacesLost bind:value={placesLost} name="Places Lost" min={0} max={50} />
     <Car />
   </div>
 </main>
@@ -45,9 +45,5 @@
   .content {
     padding: 1rem 1.5rem;
     text-align: center;
-  }
-  Slider {
-    text-align: center;
-    flex: content;
   }
 </style>
