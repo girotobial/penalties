@@ -1,8 +1,16 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
   export let value: number;
   export let max: number;
   export let min: number;
   export let name: string;
+
+  const dispatch = createEventDispatcher();
+
+  function annouceChange() {
+    dispatch("change");
+  }
 
   $: sliderName = name + "-slider";
   $: inputName = name + "-input";
@@ -16,6 +24,7 @@
       class="form-control"
       aria-label={inputName}
       bind:value
+      on:change={annouceChange}
     />
   </div>
   <input
@@ -26,5 +35,6 @@
     step="1"
     aria-label={sliderName}
     bind:value
+    on:change={annouceChange}
   />
 </div>
