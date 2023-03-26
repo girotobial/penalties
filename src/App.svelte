@@ -7,6 +7,7 @@
   let lapOne = false;
   let firstLapMultiplier = 1;
   let unsafeRejoin = false;
+  let lolekAgain = false;
 
   $: unsafeRejoinPoints = Number(unsafeRejoin) * 5;
 
@@ -38,7 +39,9 @@
 
   $: placesLost = cars.reduce((t, car) => t + car.placesLost, 0);
   $: contactPoints = cars.reduce((t, car) => t + Number(car.contact), 0);
+  $: lolekMultiplier = Number(lolekAgain) + 1;
   $: penaltyPoints =
+    lolekMultiplier *
     firstLapMultiplier *
     (0.5 * placesLost + contactPoints + unsafeRejoinPoints);
 </script>
@@ -54,6 +57,7 @@
       bind:firstLap={lapOne}
       bind:unsafeRejoin
       bind:numCars
+      bind:lolekAgain
       on:change={adjustCars}
     />
     <div class="container-sm cars">
