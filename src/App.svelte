@@ -15,7 +15,7 @@
 
   $: unsafeRejoinPoints = Number(unsafeRejoin) * 5;
 
-  $: firstLapMultiplier = Number(lapOne) * 2;
+  $: firstLapMultiplier = Number(lapOne) + 1;
 
   let numCars = 1;
 
