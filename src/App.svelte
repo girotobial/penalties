@@ -5,6 +5,7 @@
   import BarbieGirl from "./lib/BarbieGirl.svelte";
   import DissapointedMan from "./lib/DissapointedMan.svelte";
   import type { Car as CarType } from "./types";
+  import Youtube from "./lib/Youtube.svelte";
 
   let lapOne = false;
   let unsafeRejoin = false;
@@ -61,8 +62,10 @@
       <Penalty points={penaltyPoints} />
     {:else if numCars < dissapointedMan}
       <BarbieGirl />
-    {:else}
+    {:else if numCars < 50}
       <DissapointedMan />
+    {:else}
+      <Youtube videoId="GyJNEZPm-pQ" autoplay />
     {/if}
     <Settings
       bind:firstLap={lapOne}
@@ -71,7 +74,7 @@
       bind:lolekAgain
       on:change={adjustCars}
       minCars={0}
-      maxCars={25}
+      maxCars={50}
     />
     {#if numCars < barbieGirl}
       <div class="container-sm cars">
