@@ -31,12 +31,18 @@
   ];
 
   function adjustCars() {
+    const existing_cars = cars;
+    const numExistingCars = existing_cars.length;
     let new_cars = [];
     for (let i = 0; i < numCars; i++) {
-      new_cars.push({
-        contact: true,
-        placesLost: 0,
-      });
+      if (i < numExistingCars) {
+        new_cars.push(existing_cars[i]);
+      } else {
+        new_cars.push({
+          contact: true,
+          placesLost: 0,
+        });
+      }
     }
     cars = new_cars;
   }
