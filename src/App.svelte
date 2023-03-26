@@ -7,6 +7,9 @@
 
   let lapOne = false;
   let firstLapMultiplier = 1;
+  let unsafeRejoin = false;
+
+  $: unsafeRejoinPoints = Number(unsafeRejoin) * 5;
 
   $: if (lapOne) {
     firstLapMultiplier = 2;
@@ -36,27 +39,36 @@
 
   $: placesLost = cars.reduce((t, car) => t + car.placesLost, 0);
   $: contactPoints = cars.reduce((t, car) => t + Number(car.contact), 0);
-  $: penaltyPoints = firstLapMultiplier * (0.5 * placesLost + contactPoints);
+  $: penaltyPoints =
+    firstLapMultiplier *
+    (0.5 * placesLost + contactPoints + unsafeRejoinPoints);
 </script>
 
 <main>
   <div class="container-sm">
     <div class="content">
       <h1 class="text-primary">Penalties Calculator</h1>
-      <p class="lead">For when you're just too tired to do maths</p>
+      <p class="lead">For when you're just too fucking tired to do maths</p>
     </div>
     <Penalty points={penaltyPoints} />
-    <div class="container-md mb-3">
-      <TickBox bind:value={lapOne} label="First Lap" />
+    <div class="container-sm options">
+      <div class="row mb-3">
+        <div class="col-sm-4">
+          <TickBox bind:value={lapOne} label="First Lap" />
+        </div>
+        <div class="col-sm-4">
+          <TickBox bind:value={unsafeRejoin} label="Unsafe Rejoin" />
+        </div>
+      </div>
       <Slider
         bind:value={numCars}
         name="Cars Effected"
         min={1}
-        max={5}
+        max={10}
         on:change={adjustCars}
       />
     </div>
-    <div class="container">
+    <div class="container-sm cars">
       <h2 class="text-secondary">Cars</h2>
       <ul>
         {#each cars as car, id}
@@ -75,5 +87,11 @@
   .content {
     padding: 1rem 1.5rem;
     text-align: center;
+  }
+  .cars {
+    max-width: 540px;
+  }
+  .options {
+    max-width: 540px;
   }
 </style>
