@@ -16,10 +16,10 @@
 
 <div class="container-sm options">
   <div class="row mb-3">
-    <div class="col-sm-4">
+    <div class="col-sm-4" title="doubles penalty points for the first lap">
       <TickBox bind:value={firstLap} label="First Lap" />
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" title="5 points for unsafe rejoin">
       <TickBox bind:value={unsafeRejoin} label="Unsafe Rejoin" />
     </div>
   </div>
