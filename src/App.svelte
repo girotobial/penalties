@@ -51,7 +51,7 @@
 </script>
 
 <main>
-  <div class="container-sm">
+  <div class="container">
     <div class="content">
       <h1 class="text-primary">Penalties Calculator</h1>
       <p class="lead">For when you're just too fucking tired to do maths</p>
