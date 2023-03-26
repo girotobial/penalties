@@ -10,8 +10,8 @@
   let firstLapMultiplier = 1;
   let unsafeRejoin = false;
   let lolekAgain = false;
-  const barbieGirl = 10; //For when you've just sent it too hard
-  const dissapointedMan = 20;
+  const barbieGirl = 11; //For when you've just sent it too hard
+  const dissapointedMan = 21;
 
   $: unsafeRejoinPoints = Number(unsafeRejoin) * 5;
 
