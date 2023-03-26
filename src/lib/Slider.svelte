@@ -16,25 +16,37 @@
   $: inputName = name + "-input";
 </script>
 
-<div class="mb-3">
-  <div class="input-group">
-    <span class="input-group-text" id="name">{name}</span>
+<div class="mb-3 row row-cols-2">
+  <div class="col-sm centered">
     <input
-      type="number"
-      class="form-control"
-      aria-label={inputName}
+      class="form-range"
+      type="range"
+      {min}
+      {max}
+      step="1"
+      aria-label={sliderName}
       bind:value
       on:change={annouceChange}
     />
   </div>
-  <input
-    class="form-range"
-    type="range"
-    {min}
-    {max}
-    step="1"
-    aria-label={sliderName}
-    bind:value
-    on:change={annouceChange}
-  />
+  <div class="col-sm">
+    <div class="input-group">
+      <span class="input-group-text" id="name">{name}</span>
+      <input
+        type="number"
+        class="form-control"
+        aria-label={inputName}
+        bind:value
+        on:change={annouceChange}
+      />
+    </div>
+  </div>
 </div>
+
+<style>
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
