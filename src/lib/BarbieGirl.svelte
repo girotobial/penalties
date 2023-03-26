@@ -1,5 +1,5 @@
 <div class="centered">
-  <div class="container-sm embed-responsive youtube">
+  <div class="container-sm ratio ratio-16x9 mb-3 embed-responsive youtube">
     <iframe
       class="embed-responsive-item"
       src="https://www.youtube.com/embed/ZyhrYis509A?start=14&autoplay=1&rel=0"
@@ -12,18 +12,13 @@
 </div>
 
 <style>
-  .youtube {
-    padding: 1rem;
-  }
   .centered {
     text-align: center;
   }
-  iframe {
-    min-width: 280px;
-    min-height: 157px;
-    max-height: 316px;
-    max-width: 560px;
-    width: 100%;
-    height: 100%;
+  .youtube {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* max-width: 516px; */
   }
 </style>
