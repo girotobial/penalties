@@ -1,7 +1,6 @@
 <script lang="ts">
   import Penalty from "./lib/Penalty.svelte";
-  import Slider from "./lib/Slider.svelte";
-  import TickBox from "./lib/TickBox.svelte";
+  import Settings from "./lib/Settings.svelte";
   import Car from "./lib/Car.svelte";
   import type { Car as CarType } from "./types";
 
@@ -51,23 +50,12 @@
       <p class="lead">For when you're just too fucking tired to do maths</p>
     </div>
     <Penalty points={penaltyPoints} />
-    <div class="container-sm options">
-      <div class="row mb-3">
-        <div class="col-sm-4">
-          <TickBox bind:value={lapOne} label="First Lap" />
-        </div>
-        <div class="col-sm-4">
-          <TickBox bind:value={unsafeRejoin} label="Unsafe Rejoin" />
-        </div>
-      </div>
-      <Slider
-        bind:value={numCars}
-        name="Cars Effected"
-        min={1}
-        max={10}
-        on:change={adjustCars}
-      />
-    </div>
+    <Settings
+      bind:firstLap={lapOne}
+      bind:unsafeRejoin
+      bind:numCars
+      on:change={adjustCars}
+    />
     <div class="container-sm cars">
       <h2 class="text-secondary">Cars</h2>
       <ul>
@@ -89,9 +77,6 @@
     text-align: center;
   }
   .cars {
-    max-width: 540px;
-  }
-  .options {
     max-width: 540px;
   }
 </style>

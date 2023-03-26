@@ -11,8 +11,8 @@
 </script>
 
 <div class="mb-3">
-  <h3 class="text-secondary">Car {id}</h3>
-  <div class="mb-3">
+  <label class="text-secondary" for="carSettings">Car {id}</label>
+  <div class="mb-3" id="carSettings">
     <TickBox bind:value={contact} label="Contact" />
     <Slider bind:value={placesLost} name="Places Lost" {min} {max} />
   </div>
