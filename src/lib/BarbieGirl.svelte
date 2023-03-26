@@ -1,8 +1,6 @@
-<div>
+<div class="embed-responsive embed-responsive-4by3">
   <iframe
-    class="embed-responsive embed-responsive-4by3"
-    width="560"
-    height="315"
+    class="embed-responsive-item"
     src="https://www.youtube.com/embed/ZyhrYis509A?start=14&autoplay=1"
     title="YouTube video player"
     frameborder="0"
@@ -19,6 +17,6 @@
   }
 
   iframe {
-    max-width: 450px;
+    max-width: 560px;
   }
 </style>
