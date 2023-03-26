@@ -71,7 +71,7 @@
       bind:lolekAgain
       on:change={adjustCars}
       minCars={0}
-      maxCars={0}
+      maxCars={25}
     />
     {#if numCars < barbieGirl}
       <div class="container-sm cars">
