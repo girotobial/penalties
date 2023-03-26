@@ -38,9 +38,6 @@
           {/if}
         </div>
       </div>
-      <div class="col">
-        <TickBox value="false" label="Hitman" />
-      </div>
     </div>
     <Slider
       bind:value={numCars}
