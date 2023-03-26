@@ -2,12 +2,16 @@
   import Penalty from "./lib/Penalty.svelte";
   import Settings from "./lib/Settings.svelte";
   import Car from "./lib/Car.svelte";
+  import BarbieGirl from "./lib/BarbieGirl.svelte";
+  import DissapointedMan from "./lib/DissapointedMan.svelte";
   import type { Car as CarType } from "./types";
 
   let lapOne = false;
   let firstLapMultiplier = 1;
   let unsafeRejoin = false;
   let lolekAgain = false;
+  const barbieGirl = 10; //For when you've just sent it too hard
+  const dissapointedMan = 20;
 
   $: unsafeRejoinPoints = Number(unsafeRejoin) * 5;
 
@@ -52,7 +56,13 @@
       <h1 class="text-primary">Penalties Calculator</h1>
       <p class="lead">For when you're just too fucking tired to do maths</p>
     </div>
-    <Penalty points={penaltyPoints} />
+    {#if numCars < barbieGirl}
+      <Penalty points={penaltyPoints} />
+    {:else if numCars < dissapointedMan}
+      <BarbieGirl />
+    {:else}
+      <DissapointedMan />
+    {/if}
     <Settings
       bind:firstLap={lapOne}
       bind:unsafeRejoin
@@ -60,18 +70,20 @@
       bind:lolekAgain
       on:change={adjustCars}
     />
-    <div class="container-sm cars">
-      <h2 class="text-secondary">Cars</h2>
-      <ul>
-        {#each cars as car, id}
-          <Car
-            bind:contact={car.contact}
-            bind:placesLost={car.placesLost}
-            id={id + 1}
-          />
-        {/each}
-      </ul>
-    </div>
+    {#if numCars < barbieGirl}
+      <div class="container-sm cars">
+        <h2 class="text-secondary">Cars</h2>
+        <ul>
+          {#each cars as car, id}
+            <Car
+              bind:contact={car.contact}
+              bind:placesLost={car.placesLost}
+              id={id + 1}
+            />
+          {/each}
+        </ul>
+      </div>
+    {/if}
   </div>
 </main>
 

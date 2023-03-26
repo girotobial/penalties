@@ -41,7 +41,7 @@
       bind:value={numCars}
       name="Cars Effected"
       min={1}
-      max={10}
+      max={30}
       on:change={annouceChange}
     />
   </form>
