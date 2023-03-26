@@ -17,7 +17,7 @@
 </script>
 
 <div class="mb-3 row row-cols-2">
-  <div class="col-sm centered">
+  <div class="col-4 centered">
     <input
       class="form-range"
       type="range"
@@ -29,7 +29,7 @@
       on:change={annouceChange}
     />
   </div>
-  <div class="col-sm">
+  <div class="col-8">
     <div class="input-group">
       <span class="input-group-text" id="name">{name}</span>
       <input
