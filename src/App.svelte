@@ -7,7 +7,6 @@
   import type { Car as CarType } from "./types";
 
   let lapOne = false;
-  let firstLapMultiplier = 1;
   let unsafeRejoin = false;
   let lolekAgain = false;
   const barbieGirl = 11; //For when you've just sent it too hard
@@ -15,11 +14,7 @@
 
   $: unsafeRejoinPoints = Number(unsafeRejoin) * 5;
 
-  $: if (lapOne) {
-    firstLapMultiplier = 2;
-  } else {
-    firstLapMultiplier = 1;
-  }
+  $: firstLapMultiplier = Number(lapOne) * 2;
 
   let numCars = 1;
 
@@ -75,6 +70,8 @@
       bind:numCars
       bind:lolekAgain
       on:change={adjustCars}
+      minCars={0}
+      maxCars={0}
     />
     {#if numCars < barbieGirl}
       <div class="container-sm cars">

@@ -7,6 +7,8 @@
   export let unsafeRejoin: boolean;
   export let numCars: number;
   export let lolekAgain: boolean;
+  export let maxCars: number;
+  export let minCars: number;
 
   const dispatch = createEventDispatcher();
 
@@ -36,12 +38,15 @@
           {/if}
         </div>
       </div>
+      <div class="col">
+        <TickBox value="false" label="Hitman" />
+      </div>
     </div>
     <Slider
       bind:value={numCars}
       name="Cars Effected"
-      min={1}
-      max={30}
+      min={minCars}
+      max={maxCars}
       on:change={annouceChange}
     />
   </form>
