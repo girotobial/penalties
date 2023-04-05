@@ -3,7 +3,7 @@
 </script>
 
 <div class="text-danger centered">
-  <p>{points}</p>
+  <p>{Math.floor(points)}</p>
 </div>
 
 <style>
