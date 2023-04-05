@@ -1,26 +1,28 @@
 <script lang="ts">
-  import type { Car } from "../types";
-  import Slider from "./Slider.svelte";
-  import TickBox from "./TickBox.svelte";
+    import TickBox from "./TickBox.svelte";
 
-  export let id: number = 1;
-  export let contact: boolean;
-  export let placesLost: number;
-  const min = 0;
-  const max = 50;
+    export let id: number = 1;
+    export let contact: boolean;
+    export let placesLost: number;
 </script>
 
-<div class="mb-3">
-  <label class="text-secondary" for="carSettings">Car {id}</label>
-  <div class="mb-3" id="carSettings">
-    <div title="Deducts 1 point for contact">
-      <TickBox bind:value={contact} label="Contact" />
+<form class="container-fluid border border-light p-1">
+    <div class="row justify-content-center">
+        <div class="col-sm-1">
+            <p class="h5">Car {id}</p>
+        </div>
+        <div class="col-sm-12">
+            <TickBox bind:value={contact} label="Contact" />
+        </div>
+        <div class="col input-group">
+            <span class="input-group-text" id="basic-addon1">Places Lost</span>
+            <input type="number" class="form-control" bind:value={placesLost} />
+        </div>
     </div>
-    <div title="0.5 points per place lost">
-      <Slider bind:value={placesLost} name="Places Lost" {min} {max} />
-    </div>
-  </div>
-</div>
+</form>
 
 <style>
+    form {
+        max-height: 156px;
+    }
 </style>

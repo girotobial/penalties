@@ -17,7 +17,7 @@
   }
 </script>
 
-<div class="container-sm options">
+<div class="container options">
   <form>
     <div class="row row-cols-3 mb-3">
       <div class="col" title="doubles penalty points for the first lap">
@@ -51,6 +51,6 @@
 
 <style>
   .options {
-    max-width: 540px;
+    max-width: 560px;
   }
 </style>

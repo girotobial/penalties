@@ -3,7 +3,7 @@
   export let label;
 </script>
 
-<div class="form-check form-switch">
+<div class="form-check form-check-inline form-switch">
   <label class="form-check-label" for="tickbox">{label}</label>
   <input
     class="form-check-input"
